@@ -30,34 +30,31 @@ async function playCommand(sock, chatId, message) {
         const urlYt = video.url;
 
         // Fetch audio data from API
-        const response = await axios.get(`https://apis.davidcyriltech.my.id/youtube/mp3?url=${urlYt}`);
+        const response = await axios.get(`https://apis.davidcyriltech.my.id/download/ytmp3?url=${encodeURIComponent(urlYt)}`);
         const data = response.data;
 
-        if (!data || !data.status || !data.result || !data.result.downloadUrl) {
+        if (!data?.status || !data?.result?.downloadUrl) {
             return await sock.sendMessage(chatId, { 
                 text: "Failed to fetch audio from the API. Please try again later."
             });
         }
 
         const audioUrl = data.result.downloadUrl;
-        const title = data.result.title;
+        const title = data.result.title || "audio";
 
         // Send the audio
         await sock.sendMessage(chatId, {
             audio: { url: audioUrl },
             mimetype: "audio/mpeg",
-            fileName: `${title}.mp3`
+            fileName: `${title.replace(/[^\w\s]/gi, '')}.mp3` // Remove special characters from filename
         }, { quoted: message });
 
     } catch (error) {
-        console.error('Error in song2 command:', error);
+        console.error('Error in play command:', error);
         await sock.sendMessage(chatId, { 
-            text: "*Download failed. Please try again later.*"
+            text: "Download failed. Please try again later."
         });
     }
 }
 
-module.exports = playCommand; 
-
-/*Powered by KNIGHT-BOT*
-*Credits to Keith MD*`*/
+module.exports = playCommand;
