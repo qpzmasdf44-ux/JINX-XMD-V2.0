@@ -1,4 +1,4 @@
-/*Créditos A Quien Correspondan 
+/*Cr茅ditos A Quien Correspondan 
 Play Traido y Editado 
 Por Cuervo-Team-Supreme*/
 
@@ -186,7 +186,7 @@ async function songCommand(sock, chatId, message) {
         try {
             sentMsg = await sock.sendMessage(chatId, {
                 image: { url: result.result.thumbnail },
-                caption: `*${result.result.title}*\n\n _Downloading song Request ..._\n  *_By 𝙅𝙄𝙉𝙓-𝙓𝙈𝘿*`
+                caption: `*${result.result.title}*\n\n _Downloading song Request ..._\n  *_By 饾悏岽溕瘁磭 饾悓岽卂*`
             }, { quoted: message });
         } catch (e) {
             // If thumbnail fails, fallback to just sending the audio
