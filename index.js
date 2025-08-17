@@ -184,7 +184,7 @@ await delay(1999)
                     forwardingScore: 1,
                     isForwarded: false,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '@newsletter',
+                        newsletterJid: '120363302677217436@newsletter',
                         newsletterName: '𝐉𝐈𝐍𝐗 𝐗𝐌ᴅ',
                         serverMessageId: -1
                     }
@@ -281,7 +281,7 @@ conn.ev.on('group-participants.update', async (update) => {
                             forwardingScore: 1,
                             isForwarded: false,
                             forwardedNewsletterMessageInfo: {
-                                newsletterJid: '@newsletter',
+                                newsletterJid: '120363302677217436@newsletter',
                                 newsletterName: '𝐉𝐈𝐍𝐗 𝐗𝐌ᴅ',
                                 serverMessageId: -1
                             }
